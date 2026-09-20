@@ -33,6 +33,16 @@ export function Dashboard() {
     return <div className="flex justify-center py-12"><div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div></div>;
   }
 
+  if (!summary) {
+    return (
+      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-8 rounded relative text-center">
+        <AlertTriangle className="h-12 w-12 mx-auto mb-4 text-red-500" />
+        <strong className="font-bold block text-lg mb-2">Unable to connect to Backend Server</strong>
+        <span className="block sm:inline">The backend API is currently unreachable. Please make sure your backend server is deployed and the VITE_API_URL environment variable is set correctly.</span>
+      </div>
+    );
+  }
+
   const needsAttention = students.filter(s => s.risk_level === 'HIGH' || s.risk_level === 'MEDIUM').slice(0, 10);
 
   return (

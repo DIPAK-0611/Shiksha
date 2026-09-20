@@ -24,6 +24,15 @@ export function Fairness() {
     return <div className="flex justify-center py-12"><div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div></div>;
   }
 
+  if (!data) {
+    return (
+      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-8 rounded relative text-center">
+        <strong className="font-bold block text-lg mb-2">Unable to connect to Backend Server</strong>
+        <span className="block sm:inline">The backend API is currently unreachable. Please make sure your backend server is deployed and the VITE_API_URL environment variable is set correctly.</span>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-8 max-w-4xl">
       <div className="flex items-center space-x-3 pb-4 border-b border-slate-200">
